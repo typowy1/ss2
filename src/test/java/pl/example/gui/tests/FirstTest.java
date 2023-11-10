@@ -6,7 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pl.example.gui.configuration.AppProperties;
+import pl.example.gui.waits.Waits;
+import propertiesConfig.ConfigurationProperties;
 
 import static org.testng.Assert.assertTrue;
 
@@ -21,7 +22,7 @@ public class FirstTest extends BaseTest {
 
     @Test
     public void myFirstTest() {
-        driver.navigate().to(AppProperties.getUrl());
+        driver.navigate().to(ConfigurationProperties.getProperty("gui", "app.url"));
 
         driver.findElement(By.id("L2AGLb")).click();
         driver.findElement(By.name("q")).sendKeys("google");
