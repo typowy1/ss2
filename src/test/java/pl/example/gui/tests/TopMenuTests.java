@@ -7,22 +7,16 @@ import pl.example.gui.pages.TopMenuPage;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class TopMenuTests extends BaseTest {
+
+    TopMenuPage topMenuPage;
+    AboutUsPage aboutUsPage;
+
     @Test
     public void isAboutUsLinkClickable() {
-        TopMenuPage topMenuPage = new TopMenuPage();
+        topMenuPage = new TopMenuPage();
         topMenuPage.clickOnAboutUsLink();
 
-        AboutUsPage aboutUsPage = new AboutUsPage();
+        aboutUsPage = new AboutUsPage();
         assertThat(aboutUsPage.getTextFromHeadingH1()).isEqualTo("WE DELIVER\n" + "YOUR IDEAS");
     }
-
-    @Test
-    public void isAboutUsLinkClickable2() {
-        TopMenuPage topMenuPage = new TopMenuPage();
-        topMenuPage.clickOnAboutUsLink();
-
-        AboutUsPage aboutUsPage = new AboutUsPage();
-        assertThat(aboutUsPage.getTextFromHeadingH1()).isEqualTo("WE DELIVER\n" + "YOUR IDEAS");
-    }
-
 }
