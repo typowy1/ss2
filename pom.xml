@@ -52,15 +52,13 @@
                 <version>3.1.2</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src\test\resources\all_tests_suite.xml</suiteXmlFile>
-                        <!--                        <suiteXmlFile>${testSuite}</suiteXmlFile>-->
-                        <!--                        przydatne do uruchamiania z lini polecen np w jenkinsie
-                                                    mvn clean test -Dsurefire.suiteXmlFiles=src\test\resources\all_tests_suite.xml-->
+                        <suiteXmlFile>${suiteXMLFile}</suiteXmlFile>
+<!--                        mvn clean test -Dsurefire.suiteXmlFiles=src\test\resources\all_tests_suite.xml-->
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
             <plugin>
-<!--                projekt uruchomi się zawsze w java 17 niezaleznie od ustawien danej maszyny-->
+                <!--                projekt uruchomi się zawsze w java 17 niezaleznie od ustawien danej maszyny-->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.10.1</version>

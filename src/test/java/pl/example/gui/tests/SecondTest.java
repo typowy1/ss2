@@ -7,12 +7,11 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pl.example.gui.driver.manager.DriverManager;
-import pl.example.gui.waits.Waits;
 import propertiesConfig.ConfigurationProperties;
 
 import static org.testng.Assert.assertTrue;
 
-public class FirstTest extends BaseTest {
+public class SecondTest extends BaseTest {
     private WebDriver driver;
 
     @BeforeMethod
