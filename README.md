@@ -4,4 +4,3 @@ mvn clean test '-Dsurefire.suiteXmlFiles=src\test\resources\testSuite\gui_tests_
 
 mvn clean test -Dsurefire.suiteXmlFiles=src\test\resources\testSuite\gui_tests_suite.xml
 
-Uruchamianie
