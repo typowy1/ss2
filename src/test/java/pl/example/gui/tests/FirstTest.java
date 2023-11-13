@@ -20,6 +20,7 @@ public class FirstTest extends BaseTest {
         System.setProperty("webdriver.chrome.driver", ConfigurationProperties.getProperty("gui", "chrome.driver.location"));
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+
     }
 
     @Test
