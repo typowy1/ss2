@@ -3,6 +3,7 @@ package pl.example.gui.pages;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pl.example.gui.commonMethods.CommonMethods;
 import pl.example.gui.waits.Waits;
 
 public class AboutUsPage extends BasePage {
@@ -12,8 +13,7 @@ public class AboutUsPage extends BasePage {
 
     @Step("Getting text from heading H1")
     public String getTextFromHeadingH1() {
-        Waits.waitUntilElementIsClickable(headingH1);
-        String headingH1Text = headingH1.getText();
+        String headingH1Text = CommonMethods.getTextFromElement(headingH1);
         log().info("Returned warning text was: {}", headingH1Text);
         return headingH1Text;
     }

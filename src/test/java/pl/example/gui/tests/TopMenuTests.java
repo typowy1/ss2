@@ -35,6 +35,6 @@ public class TopMenuTests extends BaseTest {
         topMenuPage.clickOnAboutUsLink();
 
         aboutUsPage = new AboutUsPage();
-        assertThat(aboutUsPage.getTextFromHeadingH1()).isEqualTo("WE DELIVER" + "YOUR IDEAS");
+        assertThat(aboutUsPage.getTextFromHeadingH1()).isEqualTo("WE DELIVER");
     }
 }

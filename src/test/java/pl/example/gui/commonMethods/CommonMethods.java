@@ -3,6 +3,7 @@ package pl.example.gui.commonMethods;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -13,15 +14,40 @@ import java.util.List;
 import java.util.Random;
 
 
-
 public class CommonMethods {
     WebDriver driver = DriverSetup.getWebDriver();
+    private static JavascriptExecutor javascriptExecutor;
     private static Logger logger = LogManager.getLogger(CommonMethods.class);
 
+
+    public static void markElementWithColor(WebElement element) {
+        javascriptExecutor = (JavascriptExecutor) DriverSetup.getWebDriver();
+        javascriptExecutor.executeScript("arguments[0].style.backgroundColor = 'salmon';", element);
+    }
+
+    public static void scrollToElement(WebElement element) {
+        Waits.waitUntilElementIsVisible(element);
+        javascriptExecutor = (JavascriptExecutor) DriverSetup.getWebDriver();
+        javascriptExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
     public static void clickCheckBox(WebElement element) {
+        Waits.waitUntilElementIsClickable(element);
         if (!element.isSelected()) {
             element.click();
         }
+    }
+
+    public static void clickOnElement(WebElement element) {
+        Waits.waitUntilElementIsClickable(element);
+        CommonMethods.markElementWithColor(element);
+        element.click();
+    }
+
+    public static String getTextFromElement(WebElement element) {
+        Waits.waitUntilElementIsVisible(element);
+        CommonMethods.markElementWithColor(element);
+        return element.getText().trim();
     }
 
     public static String replaceUnnecessaryNumber(WebElement element, int startFrom, int quantity) {
