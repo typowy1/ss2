@@ -100,7 +100,7 @@
                         <suiteXmlFile>${suiteXMLFile}</suiteXmlFile>
 <!--                        mvn clean test -Dsurefire.suiteXmlFiles=src\test\resources\all_tests_suite.xml-->
                     </suiteXmlFiles>
-                    <!--Allure, ścieżka do biblioteki aspectjweaver-->
+<!--                    Allure, ścieżka do biblioteki aspectjweaver-->
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
@@ -127,6 +127,4 @@
             </plugin>
         </plugins>
     </build>
-
-
 </project>
