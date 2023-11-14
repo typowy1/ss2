@@ -20,7 +20,6 @@ public class TopMenuTests extends BaseTest {
     public void isAboutUsLinkClickable() {
         topMenuPage = new TopMenuPage();
         topMenuPage.clickOnAboutUsLink();
-
         aboutUsPage = new AboutUsPage();
         assertThat(aboutUsPage.getTextFromHeadingH1()).isEqualTo("WE DELIVER\n" + "YOUR IDEAS");
     }
@@ -33,7 +32,6 @@ public class TopMenuTests extends BaseTest {
     public void isAboutUsLinkClickableNegative() {
         topMenuPage = new TopMenuPage();
         topMenuPage.clickOnAboutUsLink();
-
         aboutUsPage = new AboutUsPage();
         assertThat(aboutUsPage.getTextFromHeadingH1()).isEqualTo("WE DELIVER");
     }
