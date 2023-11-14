@@ -7,16 +7,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import pl.example.gui.driver.manager.DriverManager;
+import pl.example.gui.driver.manager.DriverSetup;
 
 import java.time.Duration;
 
 public class Waits {
 
-    WebDriver driver = DriverManager.getWebDriver();
+    WebDriver driver = DriverSetup.getWebDriver();
 
     private static WebDriverWait getWebDriverWait() {
-        return new WebDriverWait(DriverManager.getWebDriver(), Duration.ofSeconds(10), Duration.ofMillis(250));
+        return new WebDriverWait(DriverSetup.getWebDriver(), Duration.ofSeconds(10), Duration.ofMillis(250));
     }
 
     public static void waitUntilElementIsVisible(WebElement element) {

@@ -2,13 +2,13 @@ package pl.example.gui.driver.manager;
 
 import org.openqa.selenium.WebDriver;
 import pl.example.gui.driver.browser.Browser;
-import pl.example.gui.driver.browser.BrowserFactory;
+import pl.example.gui.driver.browser.BrowserSetup;
 import pl.example.gui.driver.listeners.WebDriverEventListenerRegistrar;
 import propertiesConfig.ConfigurationProperties;
 
 import static pl.example.gui.driver.browser.Browser.FIREFOX;
 
-public class DriverManager {
+public class DriverSetup {
     //  wzorzec projektowy gwarantujący istnienie tylko jednego obiektu danego rodzaju.
     private static WebDriver driver;
     private static boolean remoteRun = Boolean.parseBoolean(ConfigurationProperties.getProperty("grid", "is.remote.run"));
@@ -18,7 +18,7 @@ public class DriverManager {
     private static ThreadLocal<WebDriver> webDriverThreadLocal = new ThreadLocal<>();
     private static ThreadLocal<Browser> browserTypeThreadLocal = new ThreadLocal<>();
 
-    private DriverManager() {
+    private DriverSetup() {
     }
 
     //Metoda służy od ustawiania typu przeglądarki dla danego wątku, jezeli browserType = null(czyli w pliku test suite nie ma podanej przglądarki to, pobieramy ją z propertiesów
@@ -27,10 +27,10 @@ public class DriverManager {
 
         if (browserType == null) {
             browserType = browser;
-            webDriverBrowser = new BrowserFactory(browserType, remoteRun).getBrowser();
+            webDriverBrowser = new BrowserSetup(browserType, remoteRun).getBrowser();
 
         } else {
-            webDriverBrowser = new BrowserFactory(browserType, remoteRun).getBrowser();
+            webDriverBrowser = new BrowserSetup(browserType, remoteRun).getBrowser();
         }
 
         webDriverBrowser = WebDriverEventListenerRegistrar.registerWebDriverEventListener(webDriverBrowser);

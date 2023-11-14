@@ -6,8 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import pl.example.gui.driver.listeners.DriverEventListener;
-import pl.example.gui.driver.manager.DriverManager;
+import pl.example.gui.driver.manager.DriverSetup;
 import pl.example.gui.waits.Waits;
 
 import java.util.List;
@@ -16,7 +15,7 @@ import java.util.Random;
 
 
 public class CommonMethods {
-    WebDriver driver = DriverManager.getWebDriver();
+    WebDriver driver = DriverSetup.getWebDriver();
     private static Logger logger = LogManager.getLogger(CommonMethods.class);
 
     public static void clickCheckBox(WebElement element) {

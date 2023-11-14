@@ -1,6 +1,7 @@
 package pl.example.gui.driver.browser;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -10,12 +11,13 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import pl.example.gui.driver.manager.DriverSetup;
 import propertiesConfig.ConfigurationProperties;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class BrowserFactory {
+public class BrowserSetup {
 
     private static final String MESSAGE_UNKNOWN_BROWSER = "Unknown browser type! Please check your configuration";
 
@@ -26,7 +28,7 @@ public class BrowserFactory {
     private boolean isRemoteRun;
 
     //wartości pól browserType or isRemoteRun
-    public BrowserFactory(Browser browser, boolean isRemoteRun) {
+    public BrowserSetup(Browser browser, boolean isRemoteRun) {
         this.browser = browser;
         this.isRemoteRun = isRemoteRun;
     }
